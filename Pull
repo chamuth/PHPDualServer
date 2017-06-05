@@ -1,0 +1,44 @@
+<?php 
+
+// This file is used to pull XTML (eXtensible Template Markup Language) Template from the Back-end Server to the Front-end server
+
+// Import the depencies
+require_once "DualServer/Core/FileOperations.php";
+require_once "DualServer/Core/HTTPRequest.php";
+
+// Get the key from server-config
+$server_config_file = dirname(__FILE__) . "/Public/server-config.json";
+
+if (file_exists($server_config_file))
+{
+	//Server configuration exists
+	$json_content = Read($server_config_file);
+	$json = json_decode($json_content, true);
+	$key = $json["key"];
+
+	//Get the XTML
+	$XTML = (PullXTML($key));
+	//Create the files in the Local Server
+	$XTML = json_decode($XTML);
+
+	foreach($XTML as $x)
+	{
+		$file = $x[0];
+
+		$dots = explode(".", $file);
+		$extension = $dots[sizeof($dots) - 1];
+		unset($dots[sizeof($dots) - 1]);
+
+		$filename = implode("", $dots);
+
+		foreach($x[1] as $section)
+		{			
+			Create($filename . "#" . $section . "." . $extension, true);
+		}
+	}
+}else{
+	// Server configuration was not found
+	echo "Error: Server Configuration cannot be found\nPlease make sure you have installed DualServer correctly";
+}
+
+ ?>
