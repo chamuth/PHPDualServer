@@ -1,0 +1,7 @@
+{
+    "name": "Ninponix/DualServer",
+    "description": "A Framework for the Dual Server Web Design Pattern",
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    }
+}
