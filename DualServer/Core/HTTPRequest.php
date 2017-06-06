@@ -1,7 +1,7 @@
 <?php 
 
 function ServerRequest($key, $request){
-	$url = ("http://localhost/DualServer/Server/Public/GET.php?key=$key&request=" . urlencode(str_replace("/", "#", $request)));
+	$url = ("http://www.dualserver.tk/GET.php?key=$key&request=" . urlencode(str_replace("/", "#", $request)));
 
 	$options = array(
 		'http' => array(
@@ -17,7 +17,7 @@ function ServerRequest($key, $request){
 
 function PullXTML($key)
 {
-	$url = ("http://localhost/DualServer/Server/Public/XTML.php?key=" . urlencode($key));
+	$url = ("http://www.dualserver.tk/XTML.php?key=" . urlencode($key));
 	$options = array(
 		"http" => array(
 			"method" => "GET"
