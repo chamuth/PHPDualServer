@@ -22,6 +22,10 @@ class Handlers
 Handlers::AddHandler("index.html", function($request,HTTPResponse $response)
 {
 	return	$response
-	     ->set("dateContainer", "The time is great")
-	     ->set("titleSection", "This is the title");
+		->setBoolean("boolean1", true)
+	     ->setSection("dateContainer", "The time is great")
+	     ->setSection("titleSection", "This is the title")
+
+		->setLoop("items", array(1,2,3,4,5,6,7,8))
+		->setLoop("rows", array("Chamuth Chamandana", "Nigga nigga", "Framwork of niggerS"));
 });

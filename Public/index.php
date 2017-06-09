@@ -84,6 +84,7 @@ if (file_exists($config_path) == true)
 		$handle_request = "index.html";
 	}
 
+	//Handle via PHP
 	$ResultResponse = new HTTPResponse($result);
 	$result = Handlers::Handle(
 		$handle_request, $ResultResponse

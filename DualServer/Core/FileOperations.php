@@ -7,11 +7,17 @@
 		try {
 			
 			$handle = fopen($filepath, "r");
-			$content = fread($handle, filesize($filepath));
-			fclose($handle);
 
-			//Return the content
-			return $content;
+			if (filesize($filepath) != 0)
+			{
+				$content = fread($handle, filesize($filepath));
+				fclose($handle);
+
+				//Return the content
+				return $content;
+			}else{
+				return "";
+			}
 
 		} catch (Exception $e) {
 			return false;

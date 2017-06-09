@@ -3,5 +3,13 @@
     "description": "A Framework for the Dual Server Web Design Pattern",
     "require": {
         "php": "^5.3.3 || ^7.0"
-    }
+    },
+    "authors": [
+        {
+            "name": "Chamuth Chamandana",
+            "email": "c.chamandana@gmail.com",
+            "homepage": "http://www.ninponix.com/chamuth",
+            "role": "Developer"
+        }
+    ]
 }
